@@ -1,3 +1,8 @@
+h1. Jekyll Links
+
+- http://wiki.github.com/mojombo/jekyll
+- http://blog.envylabs.com/2009/08/publishing-a-blog-with-github-pages-and-jekyll
+
 h1. When to Use GH Pages and When to Use GH Wiki
 
 1) GitHub Wiki:
