@@ -1,0 +1,14 @@
+h1. When to Use GH Pages and When to Use GH Wiki
+
+1) GitHub Wiki:
+	- simple, usable wiki
+	- RSS
+	- what community should edit
+	=> For content which may users edit
+
+2) GitHub pages http://pages.github.com:
+	- use your favourite editor, grep, CLI tools ...
+	- everything is stored in Git
+	- syntax highlighting
+	- what users shouldn't edit (core)
+	=> for main page & blog
