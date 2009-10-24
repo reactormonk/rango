@@ -29,39 +29,6 @@
         {{ content }}
       </div>
 
-      <!-- http://twitter.com/goodies/widget_profile -->
-      <script src="http://widgets.twimg.com/j/2/widget.js"></script>
-      <script>
-      new TWTR.Widget({
-        version: 2,
-        type: 'profile',
-        rpp: 5,
-        interval: 6000,
-        width: 300,
-        height: 300,
-        theme: {
-          shell: {
-            background: '#333333',
-            color: '#fafafa'
-          },
-          tweets: {
-            background: '#f5f0f5',
-            color: '#0d1547',
-            links: '#4aed05'
-          }
-        },
-        features: {
-          scrollbar: false,
-          loop: false,
-          live: false,
-          hashtags: true,
-          timestamp: true,
-          avatars: false,
-          behavior: 'all'
-        }
-      }).render().setUser('RangoProject').start();
-      </script>
-
       <div class="push"></div>
     </div>
 
