@@ -6,7 +6,7 @@ window.addEvent('domready', function() {
 			tweets.each(function(tweet, i) {
 				new Element('div', {
 					//html: '<img src="' + user.profile_image_url.replace("\\",'') + '" align="left" alt="' + user.name + '" /> <strong>' + user.name + '</strong><br />' + tweet.text + '<br /><span>' + tweet.created_at + ' via ' + tweet.source.replace("\\",'') + '</span>',
-					html: '<strong>' + user.name + '</strong><br />' + tweet.text + '<br /><span>' + tweet.created_at + '</span><br>',
+					html: '<strong>' + user.name + '</strong><br />' + tweet.text + '<br /><em>' + tweet.created_at + '</em><br>',
 					'class': 'tweet clear'
 				}).inject('tweets');
 			});
