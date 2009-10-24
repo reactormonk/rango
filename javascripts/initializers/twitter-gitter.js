@@ -1,6 +1,6 @@
 // http://davidwalsh.name/mootools-twitter-plugin
 window.addEvent('domready', function() {
-	var myTwitterGitter = new TwitterGitter($('RangoProject').value, {
+	gitter = new TwitterGitter($('RangoProject').value, {
 		count: 5,
 		onComplete: function(tweets, user) {
 			tweets.each(function(tweet, i) {
