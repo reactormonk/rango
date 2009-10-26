@@ -1,4 +1,6 @@
 // This is just a minimal version for Request.JSONP
+// More Builder: http://mootools.net/more
+
 //MooTools More, <http://mootools.net/more>. Copyright (c) 2006-2009 Aaron Newton <http://clientcide.com/>, Valerio Proietti <http://mad4milk.net> & the MooTools team <http://mootools.net/developers>, MIT Style License.
 
 MooTools.More={version:"1.2.4.2dev",build:"%build%"};(function(){var c=this;var b=function(){if(c.console&&console.log){try{console.log.apply(console,arguments);
