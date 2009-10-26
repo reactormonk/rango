@@ -1,4 +1,4 @@
+- Google Analytics
 - Blog RSS
+- Blog tags
 - rango-project.org: visit your domain registrar or DNS host and add a CNAME record for your domain name
-- blog
-- Tweets
