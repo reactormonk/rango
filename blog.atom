@@ -14,8 +14,8 @@
   {% for post in site.posts limit:5 %}
 	<entry>
 		<title>{{ post.title }}</title>
-		<link href="{{ post.url }}" />
-		<id>{{ post.url }}</id>
+		<link href="/rango{{ post.url }}" />
+		<id>rango{{ post.url }}</id>
 		<updated>{{ post.date }}</updated>
 		<summary>{{ post.content }}</summary>
 	</entry>
