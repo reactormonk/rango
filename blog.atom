@@ -15,7 +15,7 @@
 	<entry>
 		<title>{{ post.title }}</title>
 		<link href="/rango{{ post.url }}" />
-		<id>rango{{ post.url }}</id>
+		<id>{{ post.url }}</id>
 		<updated>{{ post.date }}</updated>
 		<summary>{{ post.content }}</summary>
 	</entry>
