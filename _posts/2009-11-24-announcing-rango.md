@@ -4,15 +4,15 @@ layout: blog
 tags: [announcement]
 ---
 
-I am happy to announce the first usable release of my new framework Rango. Rango is small MVC framework inspired by Merb and Django builded on top of Rack. It's clean, simple and it's trying to be as agnostic as possible.
+*I am happy to announce the first public release of my new framework Rango. Rango is a small MVC framework inspired by Merb and Django builded on top of Rack. It's clean, simple and it's trying to be as agnostic as possible.*
 
 Why I decided to Write Rango?
 -----------------------------
-For few years I was happily using Merb and I has absolutely no intention to write my own framework. But then we received the "Christmas gift" from Engine Yard telling us Merb won't be developed and supported anymore. Mery Christmas really. So I started to look for a new framework.
+For few years I was happily using [Merb](http://github.com/merb/merb) and I has absolutely no intention to write my own framework. But then we obtained the "Christmas gift" from Engine Yard telling us Merb won't be developed and supported anymore. Mery Christmas really. So I started to look for a new framework.
 
-There are more than few Ruby frameworks, but just few of them are propriete for developing big applications. You like Sinatra, do you? You can write your blog in it, but would you like to write bigger e-shop in Sinatra? I guess not.
+There are more than few Ruby frameworks, but just few of them are suitable for developing big applications. You like [Sinatra](http://github.com/sinatra/sinatra), do you? You can write your blog in it, but would you like to write bigger e-shop in it? I guess not.
 
-And this is where Rango comes. It's lightweight framework, but it's intended to be decent solution even for big sites. But because it's still lightweight and very flexible, you can build small applications in it and it won't be an overkill.
+And this is where [Rango](http://github.com/botanicus/rango) comes. It's lightweight framework, but it's intended to be decent solution even for big sites. But because it's still lightweight and very flexible, you can build small applications in it and it won't be an overkill.
 
 Why You May Be Interested In Using Rango?
 -----------------------------------------
@@ -42,6 +42,14 @@ Some other notable features are dead-simple-to-write [generators](http://wiki.gi
 
 *More at Rango wiki in [Why use Rango](http://wiki.github.com/botanicus/rango/why-use-rango) chapter.*
 
+The Future
+----------
+I'd like to integrate Rango with [Pancake](http://github.com/hassox/pancake). Pancake is basically a glue framework for connecting multiple Rack applications.
+
+After the integration, I'd like to have each application as a gem which can use other Rango/pancake applications, so everything can be distributed as gems and therefore installed via [Bundler](http://github.com/wycats/bundler). Such application shall have not just its own controllers and models, but also templates and assets.
+
+*For more informations see [roadmap](http://wiki.github.com/botanicus/rango/roadmap) and [issue tracker](http://github.com/botanicus/rango/issues).*
+
 Lets Start!
 -----------
 * Clone Rango repository: `git clone git://github.com/botanicus/rango.git `
@@ -54,4 +62,4 @@ Discovering Rango
 
 There is quite a lot documentation on [Rango Wiki](http://wiki.github.com/botanicus/rango). If you are interested in contributing to Rango, go for it! I will give you commit access for the first accepted commit.
 
-You can look forward to the tutorial and screencast which will be released pretty soon, so stay tuned and add this blog into your RSS or follow [@RangoProject](http://twitter.com/rangoproject) on Twitter! Enjoy Rango!
+You can look forward to screencast which will be released soon, so stay tuned and add this blog into your RSS or follow [@RangoProject](http://twitter.com/rangoproject) on Twitter! Enjoy Rango!
