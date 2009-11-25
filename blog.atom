@@ -7,7 +7,7 @@
 	<link href="http://botanicus.github.com/rango/blog.atom" rel="self" />
 	<link href="http://botanicus.github.com/rango" />
 	{% for post in site.posts limit:1 %}
-  <id>urn:uuid:{{ post.url }}</id>
+  <id>http://botanicus.github.com/rango{{ post.url }}</id>
 	<updated>{{ post.date | date_to_xmlschema }}</updated>
 	{% endfor %}
 	<author>
@@ -19,7 +19,7 @@
 	<entry>
 		<title>{{ post.title }}</title>
 		<link href="/rango{{ post.url }}" />
-		<id>{{ post.url }}</id>
+		<id>http://botanicus.github.com/rango{{ post.url }}</id>
 		<updated>{{ post.date | date_to_xmlschema }}</updated>
 		<summary>{{ post.perex }}</summary>
 	</entry>
