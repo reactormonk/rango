@@ -21,7 +21,7 @@ Rango is the only framework in Ruby supporting this cool feature.
 
 This is how the base template may looks like:
 
-{% highlight haml %}
+{% highlight ruby %}
 %html
   %head
     = block(:title)
@@ -34,7 +34,7 @@ This is how the base template may looks like:
 
 And here is the child one:
 
-{% highlight haml %}
+{% highlight ruby %}
 - extends "base.html"
 - block(:title, "Hello World!")
 - block(:content) do
