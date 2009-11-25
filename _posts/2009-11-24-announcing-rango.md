@@ -62,4 +62,4 @@ Discovering Rango
 
 There is quite a lot documentation on [Rango Wiki](http://wiki.github.com/botanicus/rango). If you are interested in contributing to Rango, go for it! I will give you commit access for the first accepted commit.
 
-You can look forward to screencast which will be released soon, so stay tuned and add this blog into your RSS or follow [@RangoProject](http://twitter.com/rangoproject) on Twitter! Enjoy Rango!
+You can look forward to screencast which will be released soon, so stay tuned and add this blog into your [RSS Reader](blog.atom) or follow [@RangoProject](http://twitter.com/rangoproject) on Twitter! Enjoy Rango!
