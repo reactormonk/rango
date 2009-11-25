@@ -16,14 +16,29 @@ And this is where [Rango](http://github.com/botanicus/rango) comes. It's lightwe
 Why You May Be Interested In Using Rango?
 -----------------------------------------
 
-The killer feature is certainly [template inheritance](http://wiki.github.com/botanicus/rango/template-inheritance)
+The killer feature is certainly [template inheritance](http://wiki.github.com/botanicus/rango/template-inheritance).
 Rango is the only framework in Ruby supporting this cool feature.
 
+This is how the base template may looks like:
+
 {% highlight ruby %}
-- extends "base.html" unless request.ajax?
-- block "head" do
-= block "content" do
-  %h1 The Page
+%html
+  %head
+    = block(:title)
+    - block(:head)
+  %body
+    %h1= block(:title)
+    - block(:content)
+      %em No content so far.
+{% endhighlight %}
+
+And here is the child one:
+
+{% highlight ruby %}
+- extends "base.html"
+- block(:title, "Hello World!")
+- block(:content) do
+  Hi There!
 {% endhighlight %}
 
 The [boot process](http://wiki.github.com/botanicus/rango/rango-boot-process) is also pretty unique: instead of having bunch of stupid scripts in `bin/` or `script/` directory, or executable script somewhere in system when you can't hook it, you get
