@@ -15,7 +15,7 @@ Latest Posts on Rango Blog
 <ul>
   {% for post in site.posts limit:5 %}
     <h2><a href="/rango{{ post.url }}">{{ post.title }}</a></h2>
-    <p>{{ page.perex }}
+    <p>{{ page.perex }}</p>
   {% endfor %}
 </ul>
 
