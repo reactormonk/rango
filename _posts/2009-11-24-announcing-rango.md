@@ -2,9 +2,8 @@
 title: Announcing Rango
 layout: blog
 tags: [announcement]
+perex: I am happy to announce the first public release of my new framework Rango. Rango is a small MVC framework inspired by Merb and Django builded on top of Rack. It's clean, simple and it's trying to be as agnostic as possible.
 ---
-
-*I am happy to announce the first public release of my new framework Rango. Rango is a small MVC framework inspired by Merb and Django builded on top of Rack. It's clean, simple and it's trying to be as agnostic as possible.*
 
 Why I decided to Write Rango?
 -----------------------------

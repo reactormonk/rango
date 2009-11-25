@@ -8,7 +8,7 @@
 	<link href="http://botanicus.github.com/rango" />
 	{% for post in site.posts limit:1 %}
   <id>urn:uuid:{{ post.url }}</id>
-	<updated>{{ post.date }}</updated>
+	<updated>{{ post.date | date_to_xmlschema }}</updated>
 	{% endfor %}
 	<author>
 		<name>Jakub Stastny aka Botanicus</name>
@@ -20,8 +20,8 @@
 		<title>{{ post.title }}</title>
 		<link href="/rango{{ post.url }}" />
 		<id>{{ post.url }}</id>
-		<updated>{{ post.date }}</updated>
-		<summary>{{ post.content }}</summary>
+		<updated>{{ post.date | date_to_xmlschema }}</updated>
+		<summary>{{ post.perex }}</summary>
 	</entry>
 	{% endfor %}
 </feed>
