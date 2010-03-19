@@ -125,11 +125,13 @@ module Rango
     end
 
     def params
-      @params ||= begin
-        params = self.request.params
-        params.merge!(self.router_params) if router_params
-        params
-      end
+      @params ||= extracted_params
+    end
+
+    def extracted_params
+      params = self.request.params
+      params.merge!(self.router_params) if router_params
+      params
     end
 
     # redefine this method for your controller if you want to provide custom error pages
