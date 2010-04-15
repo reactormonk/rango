@@ -45,9 +45,7 @@ module Rango
     end
 
     def action
-      env["rango.controller.action"].to_sym
-    rescue NoMethodError
-      raise "You have to setup env['rango.controller.action'] to name of action you want to call"
+      env["rango.controller.action"] || raise "You have to setup env['rango.controller.action'] to name of action you want to call"
     end
 
     def to_response
