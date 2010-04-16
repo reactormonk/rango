@@ -74,11 +74,18 @@ module Rango
       if Rango.development? or Rango.testing?
         raise exception
       else
+        rescue_production_error(exception)
         message = "#{exception.class}: #{exception.message}"
         server_error = InternalServerError.new(message)
         server_error.backtrace = caller
         self.rescue_http_error(server_error)
       end
+    end
+
+    # Stub. Callback for hooking non-HTTP Errors that get raised when in
+    # production mode, so you can send them via email and so on.
+    # @param [Exception]
+    def rescue_production_error(exception)
     end
 
     # @since 0.0.1
