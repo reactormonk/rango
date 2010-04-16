@@ -146,7 +146,7 @@ module Rango
     def rescue_http_error(exception)
       # we need to call it before we assign the variables
       body = self.render_http_error(exception)
-      [exception.status, exception.headers, body]
+      [exception.status, exception.headers, [body]]
     end
 
     def render_http_error(exception)
