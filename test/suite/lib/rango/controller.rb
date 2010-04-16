@@ -32,14 +32,17 @@ BareTest.suite "Rango" do
           @action = :foobaz
           @error = Rango::Exceptions::NotFound
         end
+
         setup :exercise do
           @env['rango.controller.action'] = @action
           @controller = Rango::Controller.new(@env)
         end
+
         assert "bails when :action" do
           raises(@error) { @controller.run_action }
         end
       end
+
       suite "else" do
         setup :exercise do
           @controller.run_action
@@ -49,5 +52,6 @@ BareTest.suite "Rango" do
         end
       end
     end
+
   end
 end
