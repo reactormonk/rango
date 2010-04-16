@@ -54,6 +54,7 @@ module Rango
       env["rango.controller.action"] || raise(NoAction, "You have to setup env['rango.controller.action'] to name of action you want to call.")
     end
 
+    # @return [Array<Integer, Hash, Array<body>>]
     def to_response
       self.run_action
       #self.response.finish # do we need this?
