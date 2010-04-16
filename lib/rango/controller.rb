@@ -10,9 +10,16 @@ require "rango/environments"
 
 module Rango
   class Controller
+
+    # The Rango Controller. Where great stuff happens.
+    #
+    # A Router wants to call #dispatcher to get a Lambda which may be
+    # used for threads. You may also call Controller.call(env) directly.
+
     include Rango::UrlHelper
     include Rango::Exceptions
     extend Forwardable
+
     # for routers
     def self.dispatcher(action)
       lambda do |env|
