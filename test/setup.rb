@@ -10,3 +10,7 @@ BareTest do
   require_ruby     "1.9.1" # minimum ruby version to run these tests
   use              :support # Use :support in all suites
 end
+
+require 'rango'
+require 'logger'
+Rango.logger = Logger.new("/dev/null")
