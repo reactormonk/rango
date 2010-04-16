@@ -45,7 +45,7 @@ module Rango
     end
 
     def action
-      env["rango.controller.action"] || raise "You have to setup env['rango.controller.action'] to name of action you want to call"
+      env["rango.controller.action"] || raise(NoAction, "You have to setup env['rango.controller.action'] to name of action you want to call.")
     end
 
     def to_response
@@ -160,5 +160,6 @@ module Rango
         EOF
       end
     end
+    NoAction = Class.new(NotFound)
   end
 end
