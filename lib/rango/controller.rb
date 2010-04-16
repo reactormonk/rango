@@ -30,6 +30,8 @@ module Rango
       controller.to_response
     end
 
+    # Run the action, if it exists.
+    # @raise [NotFound, NoAction]
     def run_action
       if self.respond_to?(self.action)
         self.invoke_action(self.action)
@@ -38,12 +40,16 @@ module Rango
       end
     end
 
-    # default, redefine in plugin if you need to
+    # Finally invoke the action.
+    # @api plugin
     def invoke_action(action)
       Rango.logger.debug("Calling method #{self.class.name}##{action} without arguments")
       self.response.body = self.send(action)
     end
 
+    # Get the action we want to call on the controller.
+    # @return [String, Symbol]
+    # @raise [NoAction]
     def action
       env["rango.controller.action"] || raise(NoAction, "You have to setup env['rango.controller.action'] to name of action you want to call.")
     end
@@ -56,7 +62,7 @@ module Rango
       redirection.to_response
     rescue HttpError => exception
       self.rescue_http_error(exception)
-    rescue Exception => exception # so we can be sure that all the exceptions which occures in controller can be captured by rescue_http_error method
+    rescue Exception => exception # so we can be sure that all the exceptions which occur in the controller can be captured by rescue_http_error method
       if Rango.development? or Rango.testing?
         raise exception
       else
@@ -94,7 +100,7 @@ module Rango
         exception = Redirection.new(absolute_uri(location))
         exception.status = status
         if response["Set-Cookie"]
-          exception.headers["Set-Cookie"] = response["Set-Cookie"] # otherwise it don't save cookies
+          exception.headers["Set-Cookie"] = response["Set-Cookie"] # otherwise it doesn't save cookies
         end
         block.call(exception) unless block.nil?
         raise exception
