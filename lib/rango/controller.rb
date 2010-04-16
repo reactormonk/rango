@@ -128,6 +128,7 @@ module Rango
       @router_params ||= self.env["rango.router.params"]
     end
 
+    # @return [Hash] contains all params, from router or request.
     def params
       @params ||= extracted_params
     end
