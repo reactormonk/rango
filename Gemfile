@@ -11,6 +11,8 @@ gem "rack"
 gem "haml"
 gem "erubis"
 
+gem "usher"
+
 group(:test) do
-  gem "rspec"
+  gem "baretest"
 end
