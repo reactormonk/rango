@@ -108,5 +108,17 @@ BareTest.suite "Rango" do
       end
     end
 
+    suite "#params" do
+      setup do
+        @env.merge!('rango.router.params' => {'foo' => 'bar'})
+      end
+      assert "takes params from env['rango.router.params']" do
+        equal({'foo' => 'bar'}, @controller.params)
+      end
+      assert "is a hash with indefferent access" do
+        equal('bar', @controller.params[:foo])
+      end
+    end
+
   end
 end
