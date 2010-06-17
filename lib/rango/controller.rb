@@ -51,7 +51,7 @@ module Rango
     # @api plugin
     def invoke_action(action)
       Rango.logger.debug("Calling method #{self.class.name}##{action} without arguments")
-      self.response.body = self.send(action)
+      self.response.body = Array(self.send(action))
     end
 
     # Get the action we want to call on the controller.
@@ -65,7 +65,7 @@ module Rango
     def to_response
       self.run_action
       #self.response.finish # do we need this?
-      [response.status, response.headers, [response.body]] # this way we got real body rather than response object
+      [response.status, response.headers, Array(response.body)] # this way we got real body rather than response object
     rescue Redirection => redirection
       redirection.to_response
     rescue HttpError => exception

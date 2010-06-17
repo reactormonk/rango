@@ -9,6 +9,7 @@ BareTest do
   require_baretest "0.4.0" # minimum baretest version to run these tests
   require_ruby     "1.9.1" # minimum ruby version to run these tests
   use              :support # Use :support in all suites
+  use              :basic_verifications
 end
 
 require 'rango'

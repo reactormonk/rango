@@ -4,22 +4,23 @@ BareTest.suite "Rango" do
     setup do
       @env = Rack::MockRequest.env_for("/")
       @env['rango.controller.action'] = "show"
-      STRING = "Hello there, make me a sandwitch!"
+      @string = "Hello there, make me a sandwitch!"
       @controller_class = Class.new(Rango::Controller) do
         def show
-          STRING
+          "Hello there, make me a sandwitch!"
         end
       end
       @controller = @controller_class.new(@env)
     end
 
-    suite "#invoke_action" do
-      setup :exercise do
-        @controller.run_action
-      end
-      assert "it invokes" do
-        @controller.response.body == STRING
-      end
+    exercise "#invoke_action" do
+      @controller.invoke_action(:show)
+    end
+    verify "the body responds to each" do
+      @controller.response.body.respond_to?(:each)
+    end
+    verify "it sets body to @string" do
+      equal(@string, Array(@controller.response.body).flatten.first)
     end
 
     suite "#run_action" do
@@ -33,22 +34,25 @@ BareTest.suite "Rango" do
           @error = Rango::Exceptions::NotFound
         end
 
-        setup :exercise do
+        setup do
           @env['rango.controller.action'] = @action
           @controller = Rango::Controller.new(@env)
         end
 
-        assert "bails when :action" do
-          raises(@error) { @controller.run_action }
+        exercise "call!" do
+          @controller.run_action
+        end
+        verify "bails when :action" do
+          raises(@error)
         end
       end
 
       suite "else" do
-        setup :exercise do
+        exercise "call!" do
           @controller.run_action
         end
-        assert "the action is invoked" do
-          @controller.response.body == STRING
+        verify "the action is invoked" do
+          equal(@string, Array(@controller.response.body).flatten.first)
         end
       end
     end
@@ -88,19 +92,25 @@ BareTest.suite "Rango" do
         @check = /Application Error/
       end
 
-      setup :exercise do
+      setup do
         Rango::Router.use(:usher)
         @controller_class = Class.new(Rango::Controller, &@block)
         @controller = @controller_class.new(@env)
       end
 
-      assert ":controller returns a valid rack response" do
+      exercise "call" do
         # I'm using call too here, doesn't matter.
         Rack::Lint.new(@controller_class).call(@env)
       end
+      verify ":controller returns a valid rack response" do
+        returned
+      end
 
-      assert "it handles :controller correctly" do
-        Array(@controller.to_response[2]).first =~ @check
+      exercise "#to_response" do
+        Array(@controller.to_response[2]).first
+      end
+      verify "it handles :controller correctly" do
+        returned =~ @check
       end
 
       teardown do
@@ -109,13 +119,13 @@ BareTest.suite "Rango" do
     end
 
     suite "#params" do
-      setup do
+      exercise "add" do
         @env.merge!('rango.router.params' => {'foo' => 'bar'})
       end
-      assert "takes params from env['rango.router.params']" do
+      verify "takes params from env['rango.router.params']" do
         equal({'foo' => 'bar'}, @controller.params)
       end
-      assert "is a hash with indefferent access" do
+      verify "is a hash with indefferent access" do
         equal('bar', @controller.params[:foo])
       end
     end
